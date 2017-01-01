@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Template.WebApi</name>
+  </assembly>
+  <members>
+    <member name="T:Template.WebApi.Startup">
+      <summary>
+            Defines the constraints and configuration 
+            for swagger web api configuration.
+            </summary>
+      <summary>
+            Define a inicialização para autenticação oauth.
+            </summary>
+      <summary>
+            Define a inicialização para o signalR.
+            </summary>
+      <summary>
+            Define um ponto de entrada para a configuração da aplcação.
+            </summary>
+      <summary>
+            Define a inicialização para o signalR.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.Startup.ConfigureSwagger(System.Web.Http.HttpConfiguration)">
+      <summary>
+            Registers the swagger and swagger UI on application.
+            </summary>
+      <remarks>
+            For more information:
+            https://github.com/domaindrivendev/Swashbuckle#swashbuckle-50
+            </remarks>
+    </member>
+    <member name="M:Template.WebApi.Startup.GetXmlCommentsPath">
+      <summary>
+            Gets the path to the xml document that contains the comments.
+            </summary>
+      <returns></returns>
+    </member>
+    <member name="M:Template.WebApi.Startup.BuildSwaggerDocumentationFile">
+      <summary></summary>
+    </member>
+    <member name="M:Template.WebApi.Startup.ConfigureOAuth(Owin.IAppBuilder)">
+      <summary>
+            Configura a aplicação para utilização do OAuth.
+            </summary>
+      <param name="app">The application.</param>
+    </member>
+    <member name="F:Template.WebApi.Startup.JsonSerializerFactory">
+      <summary>
+            Factory para serialização no formato json.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.Startup.GetJsonSerializer">
+      <summary>
+            Factory method para json serializer.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.Startup.ConfigureSignalR(Owin.IAppBuilder)">
+      <summary>
+            Configura a aplicação para utilização do SignalR.
+            </summary>
+      <param name="app">The application.</param>
+    </member>
+    <member name="M:Template.WebApi.Startup.Configuration(Owin.IAppBuilder)">
+      <summary>
+            Executa a configuração da aplicação.
+            </summary>
+      <remarks>
+            For more information on how to configure 
+            your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
+            </remarks>
+      <param name="app">A aplicação.</param>
+    </member>
+    <member name="M:Template.WebApi.Startup.ConfigureWebApi(System.Web.Http.HttpConfiguration)">
+      <summary>
+            Configura a aplicação para utilização de web api.
+            </summary>
+      <param name="config">A configuração http.</param>
+    </member>
+    <member name="T:Template.WebApi.Controllers.TestsController">
+      <summary>
+            Define uma controller de api para tests.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.Controllers.TestsController.Get">
+      <summary>
+            Obtém um string de test da api.
+            </summary>
+      <returns>string</returns>
+    </member>
+    <member name="T:Template.WebApi.Authorization.AuthorizationServerProvider">
+      <summary>
+            Implementação para OAuthAuthorizationServerProvider.
+            </summary>
+      <seealso cref="T:Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerProvider" />
+    </member>
+    <member name="M:Template.WebApi.Authorization.AuthorizationServerProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
+      <summary>
+            Called to validate that the origin of the request is a registered "client_id", and that the correct credentials for that client are
+            present on the request. If the web application accepts Basic authentication credentials,
+            context.TryGetBasicCredentials(out clientId, out clientSecret) may be called to acquire those values if present in the request header. If the web
+            application accepts "client_id" and "client_secret" as form encoded POST parameters,
+            context.TryGetFormCredentials(out clientId, out clientSecret) may be called to acquire those values if present in the request body.
+            If context.Validated is not called the request will not proceed further.
+            </summary>
+      <param name="context">The context of the event carries information in and results out.</param>
+      <returns>
+            Task to enable asynchronous execution
+            </returns>
+    </member>
+    <member name="M:Template.WebApi.Authorization.AuthorizationServerProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
+      <summary>
+            Grants the resource owner credentials.
+            </summary>
+      <param name="context">The context.</param>
+      <returns>
+            Task to enable asynchronous execution
+            </returns>
+    </member>
+    <member name="T:Template.WebApi.Filters.ElmahErrorAttribute">
+      <summary>
+            Define um filtro de exceções, para log das mesmas usando elmah.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.Filters.ElmahErrorAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+      <summary>
+            Raises the exception event.
+            </summary>
+      <param name="actionExecutedContext">The context for the action.</param>
+    </member>
+    <member name="T:Template.WebApi.WebApiApplication">
+      <summary>
+            Implents an http app for three year plan web app.
+            </summary>
+      <remarks>
+            Note: For instructions on enabling IIS6 or IIS7 classic mode,
+            visit http://go.microsoft.com/?LinkId=9394801
+            </remarks>
+    </member>
+    <member name="M:Template.WebApi.WebApiApplication.Application_Start">
+      <summary>
+            Handles the Application start event of the Application control.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.WebApiApplication.Application_End">
+      <summary>
+            Handles the Application end event of the Application control.
+            </summary>
+    </member>
+    <member name="T:Template.WebApi.PipelineModules.ElmahPipelineModule">
+      <summary></summary>
+    </member>
+    <member name="M:Template.WebApi.PipelineModules.ElmahPipelineModule.RaiseErrorSignal(System.Exception)">
+      <summary>
+            Raises the error signal.
+            </summary>
+      <param name="exception">The exception.</param>
+      <returns></returns>
+    </member>
+    <member name="M:Template.WebApi.PipelineModules.ElmahPipelineModule.LogException(System.Exception,Microsoft.AspNet.SignalR.Hubs.IHubIncomingInvokerContext)">
+      <summary>
+            Logs the exception.
+            </summary>
+      <param name="exception">The exception.</param>
+      <param name="invokerContext">The invoker context.</param>
+    </member>
+    <member name="M:Template.WebApi.PipelineModules.ElmahPipelineModule.OnIncomingError(Microsoft.AspNet.SignalR.Hubs.ExceptionContext,Microsoft.AspNet.SignalR.Hubs.IHubIncomingInvokerContext)">
+      <summary>
+            This is called when an uncaught exception is thrown by a server-side hub method or the incoming component of a
+            module added later to the <see cref="T:Microsoft.AspNet.SignalR.Hubs.IHubPipeline" />. Observing the exception using this method will not prevent
+            it from bubbling up to other modules.
+            </summary>
+      <param name="exceptionContext">Represents the exception that was thrown during the server-side invocation.
+            It is possible to change the error or set a result using this context.</param>
+      <param name="invokerContext">A description of the server-side hub method invocation.</param>
+    </member>
+    <member name="T:Template.WebApi.Resolver.CamelCasePropertyNamesContractResolver">
+      <summary>
+            Define um contract resolver para formatação camel case de propriedades.
+            </summary>
+      <seealso cref="T:Newtonsoft.Json.Serialization.DefaultContractResolver" />
+    </member>
+    <member name="M:Template.WebApi.Resolver.CamelCasePropertyNamesContractResolver.#ctor">
+      <summary>
+            Inicializa uma nova instância da classe <see cref="T:Template.WebApi.Resolver.CamelCasePropertyNamesContractResolver" />.
+            </summary>
+    </member>
+    <member name="P:Template.WebApi.Resolver.CamelCasePropertyNamesContractResolver.AssembliesToInclude">
+      <summary>
+            Identifica os assemblies que devem ser incluíods para a serialização.
+            </summary>
+    </member>
+    <member name="P:Template.WebApi.Resolver.CamelCasePropertyNamesContractResolver.TypesToInclude">
+      <summary>
+            Identifica os tipos que devem ser incluídos para serialização camel case.
+            </summary>
+    </member>
+    <member name="M:Template.WebApi.Resolver.CamelCasePropertyNamesContractResolver.CreateProperty(System.Reflection.MemberInfo,Newtonsoft.Json.MemberSerialization)">
+      <summary>
+            Creates a <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> for the given <see cref="T:System.Reflection.MemberInfo" />.
+            </summary>
+      <param name="member">The member to create a <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> for.</param>
+      <param name="memberSerialization">The member's parent <see cref="T:Newtonsoft.Json.MemberSerialization" />.</param>
+      <returns>
+            A created <see cref="T:Newtonsoft.Json.Serialization.JsonProperty" /> for the given <see cref="T:System.Reflection.MemberInfo" />.
+            </returns>
+    </member>
+  </members>
+</doc>
