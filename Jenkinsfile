@@ -1,6 +1,6 @@
 node('master') {
 	
-  scm checkout
+  checkout scm
   
 	stage('build'){
 		bat 'echo hello'
